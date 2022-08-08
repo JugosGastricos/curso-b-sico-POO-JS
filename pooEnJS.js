@@ -1,3 +1,63 @@
+//Clase para los cursos:
+
+class Course {
+    constructor({
+        name,
+        classes = []
+    }){
+        this.name = name;
+        this.classes = classes;
+    }
+};
+
+//Escuela web
+const cursoProgBasica = new Course({
+    name: "Curso de Programación Básica"
+});
+const cursoDefHtmlCss = new Course({
+    name:"Curso definitivo de HTML y CSS"
+});
+const cursoPractHtmlCss = new Course({
+    name:"Curso práctico de HTML y CSS"
+});
+const cursoResponsiveDesign = new Course({
+    name:"Curso de responsive design"
+}); 
+
+//Escuela videojuegos
+const cursoIntroProduccionVGS = new Course({
+    name:"Curso de introducción a la producción de VGS"
+}); 
+const cursoUnrealEngine = new Course({
+    name:"Curso de unreal engine"
+}); 
+const cursoUnity3D = new Course({
+    name:"Curso de unity 3D"
+}); 
+
+//Escuela data science
+const cursoDataBusiness = new Course({
+    name:"Curso DataBusiness"
+});
+const cursoDataViz = new Course({
+    name:"Curso DataViz"
+}); 
+const cursoTableau = new Course({
+    name:"Curso de Tableau"
+}); 
+
+//Mis cursos
+const cursoPOO = new Course({
+    name:"Curso de POO"
+}); 
+const cursoTerminal = new Course({
+    name:"Curso de intro a la terminal"
+}); 
+const cursoFinazasPer = new Course({
+    name:"Curso de finanzas personales"
+}); 
+
+
 //Clase para las rutas de las escuelas: 
 
 class LearningPaths {
@@ -11,15 +71,16 @@ class LearningPaths {
     addCourse(newCourse) {
         this.courses.push(newCourse);
     }
-}
+};
 
 //Escuela web:
 const escuelaWeb = new LearningPaths({
     name: "Escuela de Desarrollo Web",
     courses: [
-        "Curso definitivo de HTML y CSS",
-        "Curso práctico de HTML y CSS",
-        "Curso de responsive design"
+        cursoProgBasica,
+        cursoDefHtmlCss,
+        cursoPractHtmlCss,
+        cursoResponsiveDesign
     ]
 });
 
@@ -27,9 +88,10 @@ const escuelaWeb = new LearningPaths({
 const escuelaVideojuegos = new LearningPaths({
     name: "Escuela de Desarrollo de Videojuegos",
     courses: [
-        "Curso de introducción a la producción de VGS",
-        "Curso de unreal engine",
-        "Curso de unity 3D"
+        cursoProgBasica,
+        cursoIntroProduccionVGS,
+        cursoUnity3D,
+        cursoUnrealEngine
     ]
 });
 
@@ -37,11 +99,12 @@ const escuelaVideojuegos = new LearningPaths({
 const escuelaDataScience = new LearningPaths({
     name: "Escuela de Data Science",
     courses: [
-        "Curso DataBusiness",
-        "Curso DataViz",
-        "Curso de Tableau"
+        cursoProgBasica,
+        cursoDataBusiness,
+        cursoDataViz,
+        cursoTableau
     ]
-})
+});
 
 // ----------------------------------------------------------------- //
 
@@ -72,7 +135,7 @@ class Student {
         this.personalPath = personalPath;
 
     }
-}
+};
 
 //Estudiantes:
 const juan2 = new Student ({
@@ -84,7 +147,7 @@ const juan2 = new Student ({
         escuelaWeb,
         escuelaDataScience
     ]
-})
+});
 
 console.log(juan2);
 
@@ -100,12 +163,12 @@ const miguelito2 = new Student ({
     personalPath: new LearningPaths ({
         name: 'Mis cursos',
         courses: [
-            "Curso de POO", 
-            "Curso de intro a la terminal", 
-            "Curso de finanzas personales"
+            cursoPOO,
+            cursoFinazasPer,
+            cursoTerminal
         ]
     })
-})
+});
 
 miguelito2.personalPath.addCourse("Curso de historia de los lenguajes de programación");
 console.log(miguelito2);
