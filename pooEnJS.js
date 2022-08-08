@@ -5,8 +5,15 @@ class Course {
         name,
         classes = []
     }){
-        this.name = name;
+        this._name = name;
         this.classes = classes;
+    }
+
+    get name(){
+        return this._name;
+    }
+    set name(newName){
+        this._name = newName;
     }
 };
 
@@ -56,7 +63,7 @@ const cursoTerminal = new Course({
 const cursoFinazasPer = new Course({
     name:"Curso de finanzas personales"
 }); 
-
+//-------------------------------------------//
 
 //Clase para las rutas de las escuelas: 
 
@@ -124,7 +131,7 @@ class Student {
     }){
         this.name = name;
         this.email = email;
-        this.username = username;
+        this._username = username;
         this.socialMedia = {
             twitter,
             instagram,
@@ -133,7 +140,16 @@ class Student {
         this.approvedCourses = approvedCourses;
         this.learningPaths = learningPaths;
         this.personalPath = personalPath;
-
+    }
+    get username(){
+        return this._username; 
+    }
+    set username(username){
+        if(username === "juanultralol"){
+            console.warn("WTF you trynna' do >:v")
+        } else {
+            this._username = username;
+        }
     }
 };
 
@@ -149,6 +165,7 @@ const juan2 = new Student ({
     ]
 });
 
+juan2.username = "juanultralol";
 console.log(juan2);
 
 const miguelito2 = new Student ({
