@@ -1,18 +1,20 @@
 //Todos los objetos que deriven de las clases creadas:
-import { Student } from "./student.mjs";
+import { FreeStudent, BasicStudent } from "./student.mjs";
 import { Course, LearningPaths } from "./pooEnJS.mjs";
 
 //Cursos:
 
 //Escuela web
 const cursoProgBasica = new Course({
-    name: "Curso de Programación Básica"
+    name: "Curso de Programación Básica",
+    isFree: true
 });
 const cursoDefHtmlCss = new Course({
     name:"Curso definitivo de HTML y CSS"
 });
 const cursoPractHtmlCss = new Course({
-    name:"Curso práctico de HTML y CSS"
+    name:"Curso práctico de HTML y CSS",
+    lang: "english"
 });
 const cursoResponsiveDesign = new Course({
     name:"Curso de responsive design"
@@ -50,6 +52,9 @@ const cursoTerminal = new Course({
 const cursoFinazasPer = new Course({
     name:"Curso de finanzas personales"
 }); 
+const cursoHistLeng = new Course({
+    name: "Curso de historia de los lenguajes de programación"
+})
 //---------------------------------------------------------//
 
 //Escuelas:
@@ -90,7 +95,7 @@ const escuelaDataScience = new LearningPaths({
 //---------------------------------------------------------------//
 
 //Estudiantes:
-const juan2 = new Student ({
+const juan = new FreeStudent ({
     name: "JuanDC",
     username: "juandc",
     email: "juanito@juanito.com",
@@ -101,10 +106,12 @@ const juan2 = new Student ({
     ]
 });
 
-juan2.username = "juanultralol";
-console.log(juan2);
+// juan.username = "juanultralol";
+juan.approvedCourse(cursoDefHtmlCss);
+juan.approvedCourse(cursoProgBasica);
+console.log(juan);
 
-const miguelito2 = new Student ({
+const miguelito2 = new BasicStudent ({
     name: "Miguelito",
     username: "miguelito_feliz",
     email: "miguelito@juanito.com",
@@ -123,6 +130,9 @@ const miguelito2 = new Student ({
     })
 });
 
-miguelito2.personalPath.addCourse("Curso de historia de los lenguajes de programación");
+miguelito2.personalPath.addCourse(cursoHistLeng);
+miguelito2.approvedCourse(cursoPractHtmlCss);
+miguelito2.approvedCourse(cursoProgBasica);
+miguelito2.approvedCourse(cursoDefHtmlCss);
 console.log(miguelito2);
-//------------------------------------------------------------------------//
+// ------------------------------------------------------------------------//

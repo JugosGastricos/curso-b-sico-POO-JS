@@ -35,4 +35,40 @@ class Student {
     }
 };
 
-export {Student}
+class FreeStudent extends Student {
+    constructor(props){
+        super(props);
+    }
+    approvedCourse(newCourse){
+        if (newCourse.isFree){
+            this.approvedCourses.push(newCourse);
+        } else {
+            console.warn(`Lo sentimos, ${this.name}, no puedes tomar el ${newCourse.name} porque no está disponible en tu suscripción gratis`);
+        }
+    }
+};
+
+class BasicStudent extends Student {
+    constructor(props){
+        super(props);
+    }
+    approvedCourse(newCourse){
+        if (newCourse.lang !== "english"){
+            this.approvedCourses.push(newCourse);
+        } else {
+            console.warn(`Lo sentimos, ${this.name}, no puedes tomar el ${newCourse._name} porque no está disponible en tu suscripción Basic`);
+        }
+    }
+};
+
+class ExpertStudent extends Student {
+    constructor(props){
+        super(props);
+    }
+    approvedCourse(newCourse){
+        this.approvedCourses.push(newCourse);
+    }
+};
+
+
+export {FreeStudent, BasicStudent, ExpertStudent}

@@ -31,10 +31,14 @@ class PlatziClass {
 class Course {
     constructor({
         name,
-        classes = []
+        classes = [],
+        isFree = false,
+        lang = "spanish"
     }){
         this._name = name;
         this.classes = classes;
+        this.isFree = isFree;
+        this.lang = lang;
     }
 
     get name(){
