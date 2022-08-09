@@ -1,3 +1,31 @@
+//Clase general de las clases de platzi:
+function videoPlay(id){
+    const urlSecreta = `https://platziultrasecreto.com/${id}`;
+    console.log(`Se está reproduciendo desde la URL ${urlSecreta}`);
+}
+
+function videoStop(id){
+    const urlSecreta = `https://platziultrasecreto.com/${id}`;
+    console.log(`Pausamos la URL ${urlSecreta}`);
+}
+
+export class PlatziClass {
+    constructor({
+        name,
+        videoID,
+    }) {
+        this.name = name;
+        this.videoID = videoID;
+    }
+
+    play(){
+        videoPlay(this.videoID);
+    }
+    pause(){
+        videoStop(this.videoID);
+    }
+}
+
 //Clase para los cursos:
 
 class Course {
