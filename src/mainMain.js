@@ -1,5 +1,5 @@
 //Todos los objetos que deriven de las clases creadas:
-import { FreeStudent, BasicStudent } from "./student.mjs";
+import { FreeStudent, BasicStudent, Teacher } from "./student.mjs";
 import { Course, LearningPaths } from "./pooEnJS.mjs";
 
 //Cursos:
@@ -106,10 +106,14 @@ const juan = new FreeStudent ({
     ]
 });
 
+console.group();
 // juan.username = "juanultralol";
 juan.approvedCourse(cursoDefHtmlCss);
 juan.approvedCourse(cursoProgBasica);
+juan.publishComment("Me encantó el curso");
 console.log(juan);
+console.groupEnd();
+
 
 const miguelito2 = new BasicStudent ({
     name: "Miguelito",
@@ -134,5 +138,18 @@ miguelito2.personalPath.addCourse(cursoHistLeng);
 miguelito2.approvedCourse(cursoPractHtmlCss);
 miguelito2.approvedCourse(cursoProgBasica);
 miguelito2.approvedCourse(cursoDefHtmlCss);
-console.log(miguelito2);
+console.table(miguelito2);
 // ------------------------------------------------------------------------//
+
+//Profesor:
+const freddier = new Teacher({
+    name: "Freddy Vega",
+    username: "freddier",
+    email: "freddy@freddy.com",
+    instagram: "freddiervega"
+});
+
+console.group();
+freddier.publishComment("Hola mis queridos estudiantes de Platzi 💚");
+console.log(freddier);
+console.groupEnd();

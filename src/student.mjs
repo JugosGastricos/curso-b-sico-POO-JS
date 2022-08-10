@@ -1,3 +1,5 @@
+import {Comment} from "./pooEnJS.mjs"
+
 //Todas las clases para los estudiantes:
 class Student {
     constructor({
@@ -33,6 +35,15 @@ class Student {
             this._username = username;
         }
     }
+
+    publishComment(commentContent){
+        const comment = new Comment({
+            content: commentContent,
+            studentName: this.name,
+        });
+        comment.publish();
+    }
+
 };
 
 class FreeStudent extends Student {
@@ -70,5 +81,22 @@ class ExpertStudent extends Student {
     }
 };
 
+class Teacher extends Student {
+    constructor(props){
+        super(props);
+    }
+    approvedCourse(newCourse){
+        this.approvedCourses.push(newCourse);
+    }
+    publishComment(commentContent){
+        const comment = new Comment({
+            content: commentContent,
+            studentName: this.name,
+            studentRole: "Team Platzi"
+        });
+        comment.publish();
+    }
+};
 
-export {FreeStudent, BasicStudent, ExpertStudent}
+
+export {FreeStudent, BasicStudent, ExpertStudent, Teacher}

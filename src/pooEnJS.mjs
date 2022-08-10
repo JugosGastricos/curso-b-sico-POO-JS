@@ -26,6 +26,24 @@ class PlatziClass {
     }
 }
 
+//Clase para los comentarios
+
+class Comment {
+    constructor({
+        content,
+        studentName,
+        studentRole = "Estudiante"
+    }){
+        this.content = content;
+        this.studentName = studentName;
+        this.studentRole = studentRole;
+        this.likes = 0;
+    }
+    publish(){
+        console.log(`${this.studentName} (${this.studentRole}) tiene ${this.likes} likes y dice: ${this.content}`);
+    }
+}
+
 //Clase para los cursos:
 
 class Course {
@@ -68,4 +86,4 @@ class LearningPaths {
 
 // ----------------------------------------------------------------- //
 
-export {PlatziClass, Course, LearningPaths}
+export {PlatziClass, Course, LearningPaths, Comment}
